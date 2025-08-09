@@ -1,0 +1,4 @@
+--color-bg: #000; /_ Tailwind: bg-black _/
+--color-surface: #111; /_ Tailwind: bg-neutral-900 or custom _/
+--color-text: #fff; /_ Tailwind: text-white _/
+--color-accent: #ffcc00; /_ Tailwind: text-yellow-400 or custom _/
