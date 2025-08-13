@@ -46,7 +46,7 @@
     <main class="flex flex-col mx-auto space-y-20">
 
       <!-- About Section -->
-      <section id="about" class="relative h-screen overflow-hidden text-center">
+      <section id="about" class="relative min-h-screen overflow-hidden text-center">
         <!-- Background Image with Opacity -->
         <div class="absolute inset-0 bg-[url('/public/images/heroImg.jpg')] bg-cover bg-center opacity-30"></div>
         <div class="pointer-events-none absolute inset-0 bg-[url('/public/images/heroBG.jpg')] bg-cover bg-center opacity-30 z-0"></div>
