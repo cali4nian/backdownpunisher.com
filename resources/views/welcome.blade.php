@@ -63,8 +63,9 @@
           <!-- Slideshow -->
           <div class="relative w-full max-w-xl mx-auto mb-8">
             <div id="kain-slideshow" class="flex items-center justify-center w-full h-64 overflow-hidden bg-black shadow-lg rounded-xl">
+              
               <!-- Images -->
-              <img src="{{ asset('images/7th_Grade_KS.jpeg') }}" alt="Kain photo 1" class="object-contain w-full h-full transition-opacity duration-700 ease-in-out slide-img" style="display:block;">
+              <img src="{{ asset('images/seventhGradeKain.jpeg') }}" alt="Kain photo 1" class="object-contain w-full h-full transition-opacity duration-700 ease-in-out slide-img" style="display:block;">
               <!-- <img src="" alt="Kain photo 2" class="object-contain w-full h-full transition-opacity duration-700 ease-in-out slide-img" style="display:none;">
               <img src="{{ asset('images/7th_Grade_KS.jpeg') }}" alt="Kain photo 3" class="object-contain w-full h-full transition-opacity duration-700 ease-in-out slide-img" style="display:none;"> -->
             </div>
