@@ -52,21 +52,82 @@
         <div class="pointer-events-none absolute inset-0 bg-[url('/public/images/heroBG.jpg')] bg-cover bg-center opacity-30 z-0"></div>
 
         <!-- Content -->
-        <div class="relative z-10 flex flex-col items-center justify-center h-full px-4">
+        <div class="relative z-10 flex flex-col items-center justify-center min-h-full px-4 py-4 sm:py-10">
           <h2 class="text-3xl md:text-4xl font-bold text-[#D4AF37] mb-6">
             Welcome to BackDownPunisher.com
           </h2>
-          <p class="max-w-3xl text-lg leading-relaxed text-white md:text-xl">
+          <p class="max-w-3xl mb-8 text-lg leading-relaxed text-white md:text-xl">
             Join Kain Soriano, the rising star of low-post basketball, as he takes you through his journey of skill, strength, and strategy.
             From dominating the court to sharing exclusive training tips, this is your front-row seat to the action.
           </p>
+          <!-- Slideshow -->
+          <div class="relative w-full max-w-xl mx-auto mb-8">
+            <div id="kain-slideshow" class="flex items-center justify-center w-full h-64 overflow-hidden bg-black shadow-lg rounded-xl">
+              <!-- Images -->
+              <img src="{{ asset('images/7th_Grade_KS.jpeg') }}" alt="Kain photo 1" class="object-contain w-full h-full transition-opacity duration-700 ease-in-out slide-img" style="display:block;">
+              <!-- <img src="" alt="Kain photo 2" class="object-contain w-full h-full transition-opacity duration-700 ease-in-out slide-img" style="display:none;">
+              <img src="{{ asset('images/7th_Grade_KS.jpeg') }}" alt="Kain photo 3" class="object-contain w-full h-full transition-opacity duration-700 ease-in-out slide-img" style="display:none;"> -->
+            </div>
+            <!-- Controls -->
+            <div class="absolute inset-x-0 flex justify-center space-x-2 bottom-2">
+              <button class="slideshow-dot w-3 h-3 rounded-full bg-[#D4AF37] opacity-70 hover:opacity-100 focus:outline-none" data-slide="0"></button>
+              <button class="w-3 h-3 bg-gray-400 rounded-full slideshow-dot opacity-70 hover:opacity-100 focus:outline-none" data-slide="1"></button>
+              <button class="w-3 h-3 bg-gray-400 rounded-full slideshow-dot opacity-70 hover:opacity-100 focus:outline-none" data-slide="2"></button>
+            </div>
+            <!-- Prev/Next -->
+            <button id="slide-prev" class="absolute p-2 text-white -translate-y-1/2 bg-black rounded-full left-2 top-1/2 bg-opacity-40 hover:bg-opacity-70 focus:outline-none">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button id="slide-next" class="absolute p-2 text-white -translate-y-1/2 bg-black rounded-full right-2 top-1/2 bg-opacity-40 hover:bg-opacity-70 focus:outline-none">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
           <a
             href="#highlights"
-            class="inline-block mt-6 px-8 py-4 bg-[#E63946] hover:bg-[#D4AF37] text-white font-semibold text-lg rounded-full transition-all duration-300 shadow-md hover:text-black"
+            class="inline-block mt-2 px-8 py-4 bg-[#E63946] hover:bg-[#D4AF37] text-white font-semibold text-lg rounded-full transition-all duration-300 shadow-md hover:text-black"
           >
             Watch Highlights
           </a>
         </div>
+        
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('#kain-slideshow .slide-img');
+            const dots = document.querySelectorAll('.slideshow-dot');
+            let current = 0;
+            let timer;
+            function showSlide(idx) {
+              slides.forEach((img, i) => {
+                img.style.display = i === idx ? 'block' : 'none';
+                dots[i].classList.toggle('bg-[#D4AF37]', i === idx);
+                dots[i].classList.toggle('bg-gray-400', i !== idx);
+              });
+              current = idx;
+            }
+            function nextSlide() {
+              showSlide((current + 1) % slides.length);
+            }
+            function prevSlide() {
+              showSlide((current - 1 + slides.length) % slides.length);
+            }
+            dots.forEach((dot, i) => {
+              dot.addEventListener('click', () => {
+                showSlide(i);
+                resetTimer();
+              });
+            });
+            document.getElementById('slide-next').addEventListener('click', () => { nextSlide(); resetTimer(); });
+            document.getElementById('slide-prev').addEventListener('click', () => { prevSlide(); resetTimer(); });
+            function resetTimer() {
+              clearInterval(timer);
+              timer = setInterval(nextSlide, 4000);
+            }
+            showSlide(0);
+            timer = setInterval(nextSlide, 4000);
+          });
+        </script>
+        
       </section>
 
       <!-- Highlights Section -->
@@ -79,13 +140,7 @@
             Latest YouTube Highlights
           </h2>
           <div class="w-full max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden ring-4 ring-[#1A1E3F] shadow-lg">
-            <iframe 
-              class="w-full h-full"
-              src="https://www.youtube.com/embed/videoseries?list=YOUR_PLAYLIST_ID"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen>
-            </iframe>
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/er0CXWtDz84?si=fblyx_w3JRnIx6av" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </section>
