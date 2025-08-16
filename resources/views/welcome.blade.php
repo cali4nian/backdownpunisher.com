@@ -200,6 +200,14 @@
 
     <!-- Footer -->
     @include('footer')
-      
+    
+    <!-- Powered by Soriano Software -->
+    <section class="flex flex-col items-center justify-center w-full h-24 mx-auto shadow-2xl bg-slate-900">
+      <a class="flex flex-row items-center space-x-2 justify-centers" href="https://sorianosoftware.com" target="_blank" rel="noopener noreferrer">
+        <img src="{{ asset('images/logo.jpeg') }}" alt="Powered by Soriano Software" class="w-12 h-12 rounded-full shadow-lg">
+        <p class="mt-2 text-sm text-center text-gray-500">Powered by Soriano Software</p>
+      </a>
+    </section>
+    
   </body>
 </html>
